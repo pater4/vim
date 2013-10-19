@@ -1,4 +1,4 @@
-:set rtp=$HOME/vim/.vim, $HOME/vim/.vim/colors, $HOME/vim/.vim/bundle/vundle
+set rtp=$HOME/vim/.vim,$HOME/vim/.vim/colors,$HOME/vim/.vim/bundle/vundle
 
 set nocompatible
 filetype off
