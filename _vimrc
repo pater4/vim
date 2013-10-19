@@ -5,7 +5,7 @@ filetype off
 if has("win32") || has("win64")
   call vundle#rc('~/.vim/bundle/')
 else
-  call vundle#rc()
+  call vundle#rc('$HOME/vim/.vim/bundle/')
 endif
 
 Bundle 'gmarik/vundle.git'
@@ -88,7 +88,7 @@ imap <C-h>     <Plug>(neosnippet_expand_or_jump)
 smap <C-h>     <Plug>(neosnippet_expand)
 "imap <expr><C-h> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-n>"
 "smap <expr><C-h> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<C-n>"
-let g:neosnippet#snippets_directory = './vim/.snipets'
+let g:neosnippet#snippets_directory = '$HOME/vim/.snipets'
 
 "Setting the vimfiler"
 let g:vimfiler_trashbox_directory = '$HOME/vim/.vimfiler_trashbox'
@@ -106,6 +106,9 @@ nnoremap <silent> [unite]s :<C-u>VimShell<CR>
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_color_change_percent = 40
 let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "Unite prefix key.
 nnoremap [unite] <Nop>
@@ -208,8 +211,8 @@ set fdm=marker
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "
-set backupdir=$HOME/.vimfiler_trashbox
-set directory=$HOME/.vimfiler_trashbox
+set backupdir=$HOME/vim/.vimfiler_trashbox
+set directory=$HOME/vim/.vimfiler_trashbox
 "let php_folding=1
 "au Syntax php set fdm=syntax
 "let java_folding=1
