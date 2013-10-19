@@ -91,7 +91,7 @@ smap <C-h>     <Plug>(neosnippet_expand)
 let g:neosnippet#snippets_directory = './vim/.snipets'
 
 "Setting the vimfiler"
-let g:vimfiler_trashbox_directory = '~/vim/.vimfiler_trashbox'
+let g:vimfiler_trashbox_directory = '$HOME/vim/.vimfiler_trashbox'
 let g:vimfiler_safe_mode_by_default = 0
 "let g:vimfiler_edit_action = 'tabopen'
 set modifiable
