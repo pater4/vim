@@ -232,6 +232,14 @@ set showmatch
 set wildmenu
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
+syntax on
+set incsearch
+set showmode
+color evening
+set hlsearch
+"インサート時のハイライト
+set nocursorline
+autocmd InsertEnter,InsertLeave * set cursorline!
 
 "---------------------------------------------------------------------------
 " GUI固有ではない画面表示の設定:
@@ -255,7 +263,7 @@ set showcmd
 " タイトルを表示
 set title
 " 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
-colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
+" colorscheme evening " (Windows用gvim使用時はgvimrcを編集すること)
 
 set fileencodings=utf-8,iso-2022-jp,euc-jp,ucs2le,ucs-2,cp932
 set fenc=utf-8
