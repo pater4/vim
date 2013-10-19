@@ -3,10 +3,8 @@ filetype off
 
 "このif文が必要。
 if has("win32") || has("win64")
-  set rtp+=~/.vim/bundle/vundle/ 
   call vundle#rc('~/.vim/bundle/')
 else
-  set rtp+=~/.vim/bundle/vundle/ 
   call vundle#rc()
 endif
 
