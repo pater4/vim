@@ -23,7 +23,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " Bundle 'adinapoli/vim-markmultiple.git'
 Bundle 'h1mesuke/vim-alignta.git'
 Bundle 'Lokaltog/vim-easymotion.git'
-Bundle 'tsaleh/vim-matchit.git'
+" Bundle 'tsaleh/vim-matchit.git'
 Bundle 'Lokaltog/vim-powerline.git'
 
 filetype plugin indent on
@@ -294,7 +294,7 @@ let g:PHP_vintage_case_default_indent = 1
 set hidden
 
 " 背景色データ
-hi Normal                        ctermbg = 234
+hi Normal         ctermbg=none
 hi CursorLine                                   cterm = none
 hi CursorLineNr   ctermfg = 208                 cterm = none
 hi Boolean        ctermfg = 135
@@ -380,7 +380,7 @@ hi LineNr         ctermfg = 250  ctermbg = 236
 hi NonText        ctermfg = 130
 
 " キーの形
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
+" let &t_ti.="\e[1 q"
+" let &t_SI.="\e[5 q"
+" let &t_EI.="\e[1 q"
+" let &t_te.="\e[0 q"
