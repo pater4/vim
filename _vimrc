@@ -294,6 +294,7 @@ let g:PHP_vintage_case_default_indent = 1
 set hidden
 
 " 背景色データ
+set t_Co=256
 hi Normal         ctermbg=none
 hi CursorLine                                   cterm = none
 hi CursorLineNr   ctermfg = 208                 cterm = none
@@ -378,9 +379,3 @@ hi CursorColumn                  ctermbg = 236
 hi ColorColumn                   ctermbg = 236
 hi LineNr         ctermfg = 250  ctermbg = 236
 hi NonText        ctermfg = 130
-
-" キーの形
-" let &t_ti.="\e[1 q"
-" let &t_SI.="\e[5 q"
-" let &t_EI.="\e[1 q"
-" let &t_te.="\e[0 q"
