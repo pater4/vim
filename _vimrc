@@ -1,32 +1,41 @@
-set rtp+=$HOME/vim/.vim,$HOME/vim/.vim/bundle/vundle
+if has('vim_starting')
+  set nocompatible               " Be iMproved
 
-set nocompatible
-filetype off
-
-"このif文が必要。
-if has("win32") || has("win64")
-  call vundle#rc('~/.vim/bundle/')
-else
-  call vundle#rc('$HOME/vim/.vim/bundle/')
+  " Required:
+  set rtp+=$HOME/vim/.vim/bundle/neobundle.vim/
+  "set runtimepath+=$HOME/vim/.vim/bundle/vundle/
 endif
 
-Bundle 'gmarik/vundle.git'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/vimshell'
-" Bundle 'Shougo/vimproc'
-Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'thinca/vim-localrc'
-" Bundle 'adinapoli/vim-markmultiple.git'
-Bundle 'h1mesuke/vim-alignta.git'
-Bundle 'Lokaltog/vim-easymotion.git'
-" Bundle 'tsaleh/vim-matchit.git'
-Bundle 'Lokaltog/vim-powerline.git'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'h1mesuke/vim-alignta.git'
+NeoBundle 'Lokaltog/vim-easymotion.git'
+NeoBundle 'Lokaltog/vim-powerline.git'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 let mapleader="t"
 
 "Setting the keymap"
@@ -115,7 +124,7 @@ endif
 let g:neocomplete#enable_at_startup = 1
 
 "Setting the vimfiler"
-let g:vimfiler_trashbox_directory = '~/.vimfiler_trashbox'
+let g:vimfiler_trashbox_directory = '$HOME/vim/.vimfiler_trashbox'
 let g:vimfiler_safe_mode_by_default = 0
 set modifiable
 "VimFiler 起動
@@ -177,8 +186,8 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   "ESCでuniteを終了
   nmap <buffer> <ESC> <Plug>(unite_exit)
-  "入力モードのときjjでノーマルモードに移動
-  imap <buffer> jj <Plug>(unite_insert_leave)
+  "入力モードのときkkでノーマルモードに移動
+  imap <buffer> kk <Plug>(unite_insert_leave)
 endfunction"}}}
 
 let g:unite_source_alignta_preset_arguments = [
@@ -226,8 +235,8 @@ set fdm=marker
 "---------------------------------------------------------------------------
 " 編集に関する設定:
 "
-set backupdir=$HOME/.vimfiler_trashbox
-set directory=$HOME/.vimfiler_trashbox
+set backupdir=$HOME/vim/.vimfiler_trashbox
+set directory=$HOME/vim/.vimfiler_trashbox
 "let php_folding=1
 "au Syntax php set fdm=syntax
 "let java_folding=1
