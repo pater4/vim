@@ -2,7 +2,7 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set rtp+=$HOME/vim/.vim/bundle/neobundle.vim/
+  set rtp+=$HOME/.vim/bundle/neobundle.vim/
   "set runtimepath+=$HOME/vim/.vim/bundle/vundle/
 endif
 
