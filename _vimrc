@@ -23,7 +23,15 @@ NeoBundle 'h1mesuke/vim-alignta.git'
 NeoBundle 'Lokaltog/vim-easymotion.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'hewes/unite-gtags'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
