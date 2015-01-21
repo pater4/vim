@@ -22,6 +22,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'h1mesuke/vim-alignta.git'
 NeoBundle 'Lokaltog/vim-easymotion.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
+NeoBundle 'hewes/unite-gtags'
+NeoBundle 'Shougo/vimproc'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
