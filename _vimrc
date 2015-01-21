@@ -141,7 +141,12 @@ set modifiable
 nmap <silent> [unite]v :<C-u>VimFiler -buffer-name=explorer -quit<CR>
 nmap <silent> fv :<C-u>VimFilerBufferDir -buffer-name=explorer -quit<CR>
 
-"VimFiler 起動
+"gtags 起動
+nmap <silent> fr :<C-u>Unite gtags/ref<CR>
+nmap <silent> fd :<C-u>Unite gtags/def<CR>
+nmap <silent> fg :<C-u>Unite gtags/grep
+
+"VimShell 起動
 nmap <silent> [unite]s :<C-u>call Vshell()<CR>
 function Vshell()
   VimShellTab
