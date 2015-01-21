@@ -145,6 +145,9 @@ nmap <silent> fv :<C-u>VimFilerBufferDir -buffer-name=explorer -quit<CR>
 nmap <silent> fr :<C-u>Unite gtags/ref<CR>
 nmap <silent> fd :<C-u>Unite gtags/def<CR>
 nmap <silent> fg :<C-u>Unite gtags/grep
+let g:unite_source_gtags_project_config = {
+\ '_': { 'treelize': 1 }
+\ }
 
 "VimShell 起動
 nmap <silent> [unite]s :<C-u>call Vshell()<CR>
