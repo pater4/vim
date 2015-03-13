@@ -150,9 +150,9 @@ let g:unite_source_gtags_project_config = {
 \ }
 
 "VimShell 起動
-nmap <silent> [unite]s :<C-u>call Vshell()<CR>
+nmap <silent> [unite]s <C-w>s<C-w>j:<C-u>call Vshell()<CR><ESC><C-w>k
 function Vshell()
-  VimShellTab
+  VimShell
   map! <buffer> <C-k> <ESC>
 endfunction
 
