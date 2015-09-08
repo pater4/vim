@@ -18,11 +18,14 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/tabpagebuffer.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'h1mesuke/vim-alignta.git'
 NeoBundle 'Lokaltog/vim-easymotion.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'hewes/unite-gtags'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -138,8 +141,8 @@ let g:vimfiler_trashbox_directory = '$HOME/vim/.vimfiler_trashbox'
 let g:vimfiler_safe_mode_by_default = 0
 set modifiable
 "VimFiler 起動
-nmap <silent> [unite]v :<C-u>VimFiler -buffer-name=explorer -quit<CR>
-nmap <silent> fv :<C-u>VimFilerBufferDir -buffer-name=explorer -quit<CR>
+nmap <silent> [unite]v :<C-u>VimFiler -buffer-name=explorer -force-quit<CR>
+nmap <silent> fv :<C-u>VimFilerBufferDir -buffer-name=explorer -force-quit<CR>
 
 "gtags 起動
 nmap <silent> fr :<C-u>Unite gtags/ref<CR>
@@ -150,11 +153,7 @@ let g:unite_source_gtags_project_config = {
 \ }
 
 "VimShell 起動
-nmap <silent> [unite]s <C-w>s<C-w>j:<C-u>call Vshell()<CR><ESC><C-w>k
-function Vshell()
-  VimShell
-  map! <buffer> <C-k> <ESC>
-endfunction
+nmap <silent> [unite]s :<C-u>shell<CR>
 
 "Tab indent color"
 let g:indent_guides_enable_on_vim_startup = 1
@@ -190,7 +189,8 @@ let g:unite_split_rule = 'botright'
 "開いていない場合はカレントディレクトリ
 nmap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=tab file<CR>
 "バッファ一覧
-nmap <silent> fs :<C-u>Unite -toggle buffer<CR>
+nmap <silent> fs :<C-u>Unite -toggle -no-split buffer<CR>
+nmap <silent> fo :<C-u>Unite -toggle -no-split outline<CR>
 "レジスタ一覧
 nmap <silent> [unite]r :<C-u>Unite -buffer-name=tab -toggle register<CR>
 "最近使用したファイル一覧
@@ -263,8 +263,7 @@ set directory=$HOME/vim/.vimfiler_trashbox
 set tabstop=4
 set sw=4 st=4
 " タブをスペースに展開しない (expandtab:展開する)
-"set noexpandtab
-set expandtab
+set noexpandtab
 " 自動的にインデントする (noautoindent:インデントしない)
 set autoindent
 " バックスペースでインデントや改行を削除できるようにする
@@ -378,7 +377,7 @@ hi SignColumn     ctermfg = 118  ctermbg = 235
 hi SpecialChar    ctermfg = 161                 cterm = bold
 hi SpecialComment ctermfg = 230                 cterm = bold
 hi Special        ctermfg = 81
-hi SpellBad                      ctermbg = 52
+hi SpellBad       ctermfg = 230  ctermbg = 52
 hi SpellCap                      ctermbg = 17
 hi SpellLocal                    ctermbg = 17
 hi SpellRare      ctermfg = none ctermbg = none cterm = reverse
