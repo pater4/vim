@@ -24,6 +24,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'h1mesuke/vim-alignta.git'
 NeoBundle 'Lokaltog/vim-easymotion.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
+NeoBundle 'Lokaltog/powerline-fontpatcher'
 NeoBundle 'hewes/unite-gtags'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/vimproc', {
@@ -139,10 +140,22 @@ let g:neocomplete#enable_at_startup = 1
 "Setting the vimfiler"
 let g:vimfiler_trashbox_directory = '$HOME/vim/.vimfiler_trashbox'
 let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer = 1
 set modifiable
 "VimFiler 起動
 nmap <silent> [unite]v :<C-u>VimFiler -buffer-name=explorer -force-quit<CR>
 nmap <silent> fv :<C-u>VimFilerBufferDir -buffer-name=explorer -force-quit<CR>
+"vimfilerを開いている間のキーマッピング
+autocmd FileType vimfiler call s:vimfiler_my_settings()
+function! s:vimfiler_my_settings()"{{{
+  nmap <buffer> q <Plug>(vimfiler_exit)
+endfunction"}}}
+
+if executable('grep')
+  let g:unite_source_grep_command = 'grep'
+  "let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  "let g:unite_source_grep_recursive_opt = ''
+endif
 
 "gtags 起動
 nmap <silent> fr :<C-u>Unite gtags/ref<CR>
@@ -163,7 +176,6 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=24
 hi IndentGuidesEven ctermbg=22
 
-
 "Unite prefix key.
 nmap [unite] <Nop>
 xmap [unite] <Nop>
@@ -180,10 +192,10 @@ let g:unite_source_file_mru_limit = 50
 let g:unite_source_file_mru_filename_format = ''
 
 let g:unite_enable_split_vertically = 0
-let g:unite_winheight =20 
+let g:unite_winheight = 25
 let g:unite_winwidth = 35
 
-let g:unite_split_rule = 'botright'
+let g:unite_split_rule = 'topleft'
  
 "現在開いているファイルのディレクトリ下のファイル一覧。
 "開いていない場合はカレントディレクトリ
@@ -204,8 +216,8 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   "ESCでuniteを終了
   nmap <buffer> <ESC> <Plug>(unite_exit)
-  "入力モードのときkkでノーマルモードに移動
-  imap <buffer> kk <Plug>(unite_insert_leave)
+  "入力モードのときjjでノーマルモードに移動
+  imap <buffer> jj <Plug>(unite_insert_leave)
 endfunction"}}}
 
 let g:unite_source_alignta_preset_arguments = [
