@@ -26,6 +26,7 @@ NeoBundle 'Lokaltog/vim-easymotion.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'Lokaltog/powerline-fontpatcher'
 NeoBundle 'hewes/unite-gtags'
+NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
@@ -70,6 +71,10 @@ noremap fy "+y
 noremap fY "+Y
 vnoremap fy "+y
 vnoremap fY "+Y
+
+" coffeeの設定
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
 
 " 置き換えスクリプト
 vmap ii y:%s/<C-r>"/<C-r>"/g
